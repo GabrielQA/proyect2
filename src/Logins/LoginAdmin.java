@@ -29,7 +29,7 @@ import org.postgresql.util.Base64;
  * @author Gabriel
  */
 public class LoginAdmin extends javax.swing.JFrame {
-    
+
     private Connection connection = null;
     private ResultSet rs = null;
     private Statement s = null;
@@ -130,7 +130,7 @@ public class LoginAdmin extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(R1, javax.swing.GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE)
                                     .addComponent(R2))))
-                        .addGap(0, 21, Short.MAX_VALUE))
+                        .addGap(0, 22, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(Atras)))
@@ -163,46 +163,27 @@ public class LoginAdmin extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         Conexion();
+
         try {
             Usu = R1.getText();
-            Contraseña = R2.getText();
-            
+
+            encriptacion en = new encriptacion();
+            String Contraseña = en.Encriptar(R2.getText());
+            String tipo;
             s = connection.createStatement();
-            rs = s.executeQuery("SELECT usuario,contraseña FROM admin WHERE usuario  = '" + Usu + "'");
-            
+            rs = s.executeQuery("SELECT cedula,nombre,telefono,direccion,foto,contraseña,tipo FROM usu_cliente WHERE nombre  = '" + Usu + "' and contraseña ='" + Contraseña + "'");
             while (rs.next()) {
-                
-                s = connection.createStatement();
-                rs = s.executeQuery("SELECT usuario,contraseña FROM admin WHERE contraseña  = '" + Contraseña + "'");
-                while (rs.next()) {
-                  
+                System.out.println("Usuario Existe");
+
+                tipo = rs.getString("tipo");
+                if (tipo.equals("admin")) {
                     Administrador Log = new Administrador();
                     Log.setVisible(true);
                     Log.setEnabled(true);
                     Log.setLocationRelativeTo(null);
                     dispose();
-                }
-                
-                
+                } else if (tipo.equals("user")) {
 
-            }
-
-        } catch (Exception e) {
-            System.out.println("Error de conexión");
-        }
-
-        try {
-            Usu = R1.getText();
-            Contraseña = R2.getText();
-
-            s = connection.createStatement();
-            rs = s.executeQuery("SELECT cedula,nombre,telefono,direccion,foto,contraseña FROM usu_cliente WHERE nombre  = '" + Usu + "'");
-            while (rs.next()) {
-                System.out.println("Usuario Existe");
-                s = connection.createStatement();
-                rs = s.executeQuery("SELECT cedula,nombre,telefono,direccion,foto,contraseña FROM usu_cliente WHERE contraseña  = '" + Contraseña + "'");
-                while (rs.next()) {
-                    System.out.println("Contraseña Existe");
                     Tienda Log = new Tienda();
                     Log.setVisible(true);
                     Log.setEnabled(true);
@@ -213,7 +194,7 @@ public class LoginAdmin extends javax.swing.JFrame {
             }
 
         } catch (Exception e) {
-            System.out.println("Error de conexión");
+            System.out.println("Error de conexión" + e);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -270,5 +251,4 @@ public class LoginAdmin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 
-   
 }
