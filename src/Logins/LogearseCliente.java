@@ -204,9 +204,9 @@ public class LogearseCliente extends javax.swing.JFrame {
             Contraseña = Cod1.getText();
             encriptacion en = new encriptacion();
             String contraseña= en.Encriptar(Contraseña) ;
-
+            String tipo = "user";
             s = connection.createStatement();
-            int z = s.executeUpdate("INSERT INTO usu_cliente (cedula,nombre,telefono,direccion,foto,contraseña) VALUES ('" + Integer.parseInt(Cedula) + "', '" + Nombre + "', '" + Integer.parseInt(Telefono) + "', '" + Direccion + "', '" + Foto + "', '" + contraseña + "')");
+            int z = s.executeUpdate("INSERT INTO usu_cliente (cedula,nombre,telefono,direccion,foto,contraseña,tipo) VALUES ('" + Integer.parseInt(Cedula) + "', '" + Nombre + "', '" + Integer.parseInt(Telefono) + "', '" + Direccion + "', '" + Foto + "', '" + contraseña + "', '" + tipo + "')");
             if (z == 1) {
                 System.out.println("Se a registrado de manera exitosa");
                 JOptionPane.showMessageDialog(rootPane, "A sido añadido exitosamente");
@@ -220,7 +220,7 @@ public class LogearseCliente extends javax.swing.JFrame {
             }
 
         } catch (Exception e) {
-            System.out.println("Error de conexión");
+            System.out.println("Error de conexión"+e);
         }
         C1.setText("");
         N1.setText("");
@@ -281,4 +281,39 @@ public class LogearseCliente extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     // End of variables declaration//GEN-END:variables
+public void Admin(){
+     Conexion();
+
+        try {
+            Cedula = C1.getText();
+            Nombre = N1.getText();
+           
+           
+            encriptacion en = new encriptacion();
+            String contraseña= en.Encriptar(Contraseña) ;
+
+            s = connection.createStatement();
+            int z = s.executeUpdate("INSERT INTO usu_cliente (cedula,nombre,telefono,direccion,foto,contraseña,tipo) VALUES ('" + Cedula + "')");
+            if (z == 1) {
+                System.out.println("Se a registrado de manera exitosa");
+                JOptionPane.showMessageDialog(rootPane, "A sido añadido exitosamente");
+                LoginAdmin Log = new LoginAdmin();
+                Log.setVisible(true);
+                Log.setEnabled(true);
+                Log.setLocationRelativeTo(null);
+                dispose();
+            } else {
+                System.out.println("Error al insertar el registro");
+            }
+
+        } catch (Exception e) {
+            System.out.println("Error de conexión");
+        }
+        C1.setText("");
+        N1.setText("");
+        T1.setText("");
+        D1.setText("");
+        F1.setText("");
+        Cod1.setText("");
+}
 }
