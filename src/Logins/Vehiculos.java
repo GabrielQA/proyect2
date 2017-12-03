@@ -23,9 +23,10 @@ import javax.swing.table.DefaultTableModel;
  * @author Gabriel
  */
 public class Vehiculos extends javax.swing.JFrame {
+
     int tt;
     int qq;
-     String MarcaID;
+    String MarcaID;
     String ModeloID;
     String EstiloID;
     String Estado1;
@@ -42,7 +43,8 @@ public class Vehiculos extends javax.swing.JFrame {
     private Connection connection = null;
     private ResultSet rs = null;
     private Statement s = null;
-        public void Conexion() {
+
+    public void Conexion() {
         if (connection != null) {
             return;
         }
@@ -59,13 +61,13 @@ public class Vehiculos extends javax.swing.JFrame {
             System.out.println("Problem when connecting to the database");
         }
     }
+
     /**
      * Creates new form Vehiculos
      */
     public Vehiculos() {
         initComponents();
     }
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -304,7 +306,7 @@ public class Vehiculos extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-      Administrador Log = new Administrador();
+        Administrador Log = new Administrador();
         Log.setVisible(true);
         Log.setEnabled(true);
         Log.setLocationRelativeTo(null);
@@ -312,98 +314,97 @@ public class Vehiculos extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void AActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AActionPerformed
-        qq=1;
-        if(A.isSelected()){
-        B.setSelected(false);
-    }
+        qq = 1;
+        if (A.isSelected()) {
+            B.setSelected(false);
+        }
     }//GEN-LAST:event_AActionPerformed
 
     private void BActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BActionPerformed
-        qq=0;
-        if(B.isSelected()){
-        A.setSelected(false);
-    }
+        qq = 0;
+        if (B.isSelected()) {
+            A.setSelected(false);
+        }
     }//GEN-LAST:event_BActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-       Conexion();
+        Conexion();
         try {
             Placa = R1.getText();
             Marca = R2.getText();
             Modelo = R3.getText();
             Estilo = R4.getText();
             Transmision = R5.getText();
-            Transmision1=R5R.getText();
+            Transmision1 = R5R.getText();
             Año = R6.getText();
             Precio = R7.getText();
             foto = "";
             Estado = A.getText();
             Estado1 = B.getText();
             s = connection.createStatement();
-            if(qq==1){
-                if(tt==1){
-                    
-                    int z = s.executeUpdate("INSERT INTO vehiculo (placa,marcaid,modeloid,estiloid,transmision,año,precio,estado,foto) VALUES ('" + Placa + "', '" + Integer.parseInt(Marca) + "', '" + Integer.parseInt(Modelo) + "', '" + Integer.parseInt(Estilo) + "', '" + Transmision + "', '" + Integer.parseInt(Año) + "', '" + Integer.parseInt(Precio) + "', '" + Estado + "', '" + foto+ "')");
-            if (z == 1) {
-                System.out.println("Se agregó el registro de manera exitosa");
-                JOptionPane.showMessageDialog(rootPane, "A sido añadido con exito");
-            } else {
-                System.out.println("Error al insertar el registro");
-                 JOptionPane.showMessageDialog(rootPane, "Uno de los ID ingresados no existe");
-            } 
-                }else if(tt==2){
-                    int z = s.executeUpdate("INSERT INTO vehiculo (placa,marcaid,modeloid,estiloid,transmision,año,precio,estado,foto) VALUES ('" + Placa + "', '" + Integer.parseInt(Marca) + "', '" + Integer.parseInt(Modelo) + "', '" + Integer.parseInt(Estilo) + "', '" + Transmision1 + "', '" + Integer.parseInt(Año) + "', '" + Integer.parseInt(Precio) + "', '" + Estado + "', '" + foto+ "')");
-            if (z == 1) {
-                System.out.println("Se agregó el registro de manera exitosa");
-                JOptionPane.showMessageDialog(rootPane, "A sido añadido con exito");
-            } else {
-                System.out.println("Error al insertar el registro");
-                 JOptionPane.showMessageDialog(rootPane, "Uno de los ID ingresados no existe");
-            } 
+            if (qq == 1) {
+                if (tt == 1) {
+
+                    int z = s.executeUpdate("INSERT INTO vehiculo (placa,marcaid,modeloid,estiloid,transmision,año,precio,estado,foto) VALUES ('" + Placa + "', '" + Integer.parseInt(Marca) + "', '" + Integer.parseInt(Modelo) + "', '" + Integer.parseInt(Estilo) + "', '" + Transmision + "', '" + Integer.parseInt(Año) + "', '" + Integer.parseInt(Precio) + "', '" + Estado + "', '" + foto + "')");
+                    if (z == 1) {
+                        System.out.println("Se agregó el registro de manera exitosa");
+                        JOptionPane.showMessageDialog(rootPane, "A sido añadido con exito");
+                    } else {
+                        System.out.println("Error al insertar el registro");
+                        JOptionPane.showMessageDialog(rootPane, "Uno de los ID ingresados no existe");
+                    }
+                } else if (tt == 2) {
+                    int z = s.executeUpdate("INSERT INTO vehiculo (placa,marcaid,modeloid,estiloid,transmision,año,precio,estado,foto) VALUES ('" + Placa + "', '" + Integer.parseInt(Marca) + "', '" + Integer.parseInt(Modelo) + "', '" + Integer.parseInt(Estilo) + "', '" + Transmision1 + "', '" + Integer.parseInt(Año) + "', '" + Integer.parseInt(Precio) + "', '" + Estado + "', '" + foto + "')");
+                    if (z == 1) {
+                        System.out.println("Se agregó el registro de manera exitosa");
+                        JOptionPane.showMessageDialog(rootPane, "A sido añadido con exito");
+                    } else {
+                        System.out.println("Error al insertar el registro");
+                        JOptionPane.showMessageDialog(rootPane, "Uno de los ID ingresados no existe");
+                    }
                 }
-               
-            }else if(qq==0){
-                if(tt==1){
-                    int z = s.executeUpdate("INSERT INTO vehiculo (placa,marcaid,modeloid,estiloid,transmision,año,precio,estado,foto) VALUES ('" + Placa + "', '" + Integer.parseInt(Marca) + "', '" + Integer.parseInt(Modelo) + "', '" + Integer.parseInt(Estilo) + "', '" + Transmision + "', '" + Integer.parseInt(Año) + "', '" + Integer.parseInt(Precio) + "', '" + Estado1 + "', '" + foto+ "')");
-            if (z == 1) {
-                System.out.println("Se agregó el registro de manera exitosa");
-                JOptionPane.showMessageDialog(rootPane, "A sido añadido con exito");
-            } else {
-                System.out.println("Error al insertar el registro");
-                 JOptionPane.showMessageDialog(rootPane, "Uno de los ID ingresados no existe");
-            } 
-                }else if(tt==2){
-                    int z = s.executeUpdate("INSERT INTO vehiculo (placa,marcaid,modeloid,estiloid,transmision,año,precio,estado,foto) VALUES ('" + Placa + "', '" + Integer.parseInt(Marca)+ "', '" + Integer.parseInt(Modelo) + "', '" + Integer.parseInt(Estilo) + "', '" + Transmision1 + "', '" + Integer.parseInt(Año) + "', '" + Integer.parseInt(Precio) + "', '" + Estado1 + "', '" + foto+ "')");
-            if (z == 1) {
-                System.out.println("Se agregó el registro de manera exitosa");
-                JOptionPane.showMessageDialog(rootPane, "A sido añadido con exito");
-            } else {
-                System.out.println("Error al insertar el registro");
-                 JOptionPane.showMessageDialog(rootPane, "Uno de los ID ingresados no existe");
-            } 
+
+            } else if (qq == 0) {
+                if (tt == 1) {
+                    int z = s.executeUpdate("INSERT INTO vehiculo (placa,marcaid,modeloid,estiloid,transmision,año,precio,estado,foto) VALUES ('" + Placa + "', '" + Integer.parseInt(Marca) + "', '" + Integer.parseInt(Modelo) + "', '" + Integer.parseInt(Estilo) + "', '" + Transmision + "', '" + Integer.parseInt(Año) + "', '" + Integer.parseInt(Precio) + "', '" + Estado1 + "', '" + foto + "')");
+                    if (z == 1) {
+                        System.out.println("Se agregó el registro de manera exitosa");
+                        JOptionPane.showMessageDialog(rootPane, "A sido añadido con exito");
+                    } else {
+                        System.out.println("Error al insertar el registro");
+                        JOptionPane.showMessageDialog(rootPane, "Uno de los ID ingresados no existe");
+                    }
+                } else if (tt == 2) {
+                    int z = s.executeUpdate("INSERT INTO vehiculo (placa,marcaid,modeloid,estiloid,transmision,año,precio,estado,foto) VALUES ('" + Placa + "', '" + Integer.parseInt(Marca) + "', '" + Integer.parseInt(Modelo) + "', '" + Integer.parseInt(Estilo) + "', '" + Transmision1 + "', '" + Integer.parseInt(Año) + "', '" + Integer.parseInt(Precio) + "', '" + Estado1 + "', '" + foto + "')");
+                    if (z == 1) {
+                        System.out.println("Se agregó el registro de manera exitosa");
+                        JOptionPane.showMessageDialog(rootPane, "A sido añadido con exito");
+                    } else {
+                        System.out.println("Error al insertar el registro");
+                        JOptionPane.showMessageDialog(rootPane, "Uno de los ID ingresados no existe");
+                    }
                 }
-                
+
             }
-                
-            
+
         } catch (Exception e) {
             System.out.println("Error de conexión");
-             JOptionPane.showMessageDialog(rootPane, "Uno de los ID ingresados no existe");
+            JOptionPane.showMessageDialog(rootPane, "Uno de los ID ingresados no existe");
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void R5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R5ActionPerformed
-        tt=1;
-        if(R5.isSelected()){
-        R5R.setSelected(false);
-    }
+        tt = 1;
+        if (R5.isSelected()) {
+            R5R.setSelected(false);
+        }
     }//GEN-LAST:event_R5ActionPerformed
 
     private void R5RActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R5RActionPerformed
-        tt=2;
-        if(R5R.isSelected()){
-        R5.setSelected(false);
-    }
+        tt = 2;
+        if (R5R.isSelected()) {
+            R5.setSelected(false);
+        }
     }//GEN-LAST:event_R5RActionPerformed
 
     private void R2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R2ActionPerformed
@@ -411,29 +412,26 @@ public class Vehiculos extends javax.swing.JFrame {
     }//GEN-LAST:event_R2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-    
+
         Conexion();
-        
-            
-            try {
+
+        try {
             String sql;
             MarcaID = R2.getText();
-          
-           
+
             s = connection.createStatement();
             rs = s.executeQuery("SELECT id,nombre FROM marcas WHERE id  = '" + Integer.parseInt(MarcaID) + "'");
-            
+
             while (rs.next()) {
 
                 CM1.addItem(rs.getString("nombre"));
-                
+
                 System.out.println("Existe");
             }
 
         } catch (Exception e) {
             System.out.println("Error de conexión");
         }
-
 
     }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -471,7 +469,7 @@ public class Vehiculos extends javax.swing.JFrame {
             }
         });
     }
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JRadioButton A;
     private javax.swing.JRadioButton B;
@@ -500,37 +498,14 @@ public class Vehiculos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     // End of variables declaration//GEN-END:variables
-    conector cc= new conector();
-    Connection cn= cc.conexion();
-    public void VerificarMarcas(){
-        Conexion();
-        
-            
-            try {
-            String sql;
-            MarcaID = R2.getText();
-          
-           
-            s = connection.createStatement();
-            rs = s.executeQuery("SELECT id,nombre FROM marcas WHERE id  = '" + Integer.parseInt(MarcaID) + "'");
-            
-            while (rs.next()) {
+    conector cc = new conector();
+    Connection cn = cc.conexion();
 
-                CM1.addItem(rs.getString("nombre"));
-                
-                System.out.println("Existe");
-            }
+    public void VerificarModelo() {
 
-        } catch (Exception e) {
-            System.out.println("Error de conexión");
-        }
     }
-    public void VerificarModelo(){
-        
-    }
-    public void VerificarEstilo(){
-        
+
+    public void VerificarEstilo() {
+
     }
 }
-
-
