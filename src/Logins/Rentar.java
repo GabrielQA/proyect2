@@ -89,8 +89,6 @@ public class Rentar extends javax.swing.JFrame {
 
         jLabel5.setText("Transmision");
 
-        boxTrans.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         jLabel6.setText("Año");
 
         jLabel7.setText("Precio");
