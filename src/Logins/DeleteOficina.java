@@ -77,9 +77,9 @@ private Connection connection = null;
         });
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel3.setText("Eliminar Marcas");
+        jLabel3.setText("Eliminar Oficina");
 
-        jLabel1.setText("ID Marca");
+        jLabel1.setText("ID Oficina");
 
         A.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -107,7 +107,7 @@ private Connection connection = null;
                                 .addComponent(jLabel1)
                                 .addGap(31, 31, 31)
                                 .addComponent(A, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

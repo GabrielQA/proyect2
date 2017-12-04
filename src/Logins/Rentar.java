@@ -36,17 +36,17 @@ public class Rentar extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        boxMarca = new javax.swing.JComboBox<>();
+        boxMarca = new javax.swing.JComboBox<String>();
         jLabel3 = new javax.swing.JLabel();
-        boxModelo = new javax.swing.JComboBox<>();
+        boxModelo = new javax.swing.JComboBox<String>();
         jLabel4 = new javax.swing.JLabel();
-        boxEstilo = new javax.swing.JComboBox<>();
+        boxEstilo = new javax.swing.JComboBox<String>();
         jLabel5 = new javax.swing.JLabel();
-        boxTrans = new javax.swing.JComboBox<>();
+        boxTrans = new javax.swing.JComboBox<String>();
         jLabel6 = new javax.swing.JLabel();
-        boxAño = new javax.swing.JComboBox<>();
+        boxAño = new javax.swing.JComboBox<String>();
         jLabel7 = new javax.swing.JLabel();
-        boxPrecio = new javax.swing.JComboBox<>();
+        boxPrecio = new javax.swing.JComboBox<String>();
         btnBuscar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblVehiculos = new javax.swing.JTable();
@@ -54,7 +54,7 @@ public class Rentar extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        boxOfiretiro = new javax.swing.JComboBox<>();
+        boxOfiretiro = new javax.swing.JComboBox<String>();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
@@ -71,7 +71,7 @@ public class Rentar extends javax.swing.JFrame {
         dateEntrega = new com.toedter.calendar.JDateChooser();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
-        boxOfientrega = new javax.swing.JComboBox<>();
+        boxOfientrega = new javax.swing.JComboBox<String>();
         Date date1 = new Date();
         SpinnerDateModel sm1 = new SpinnerDateModel(date1, null, null, Calendar.HOUR_OF_DAY);
         spnHentrega = new javax.swing.JSpinner(sm1);
@@ -242,7 +242,7 @@ public class Rentar extends javax.swing.JFrame {
                                 .addComponent(spnHentrega, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel17)
                             .addComponent(checkGPS)

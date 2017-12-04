@@ -1,0 +1,134 @@
+
+-- Table: public.modelo
+
+-- DROP TABLE public.modelo;
+
+CREATE TABLE public.modelo
+(
+    id integer NOT NULL,
+    nombre character varying COLLATE pg_catalog."default",
+    CONSTRAINT modelo_pkey PRIMARY KEY (id)
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public.modelo
+    OWNER to postgres;
+
+
+
+-- Table: public.marcas
+
+-- DROP TABLE public.marcas;
+
+CREATE TABLE public.marcas
+(
+    id integer NOT NULL,
+    nombre character varying COLLATE pg_catalog."default",
+    CONSTRAINT marcas_pkey PRIMARY KEY (id)
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public.marcas
+    OWNER to postgres;
+
+
+
+
+-- Table: public.oficina
+
+-- DROP TABLE public.oficina;
+
+CREATE TABLE public.oficina
+(
+    id integer NOT NULL,
+    nombre character varying COLLATE pg_catalog."default",
+    CONSTRAINT oficina_pkey PRIMARY KEY (id)
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public.oficina
+    OWNER to postgres;
+
+
+
+
+
+
+-- Table: public.estilo
+
+-- DROP TABLE public.estilo;
+
+CREATE TABLE public.estilo
+(
+    id integer NOT NULL,
+    nombre character varying COLLATE pg_catalog."default",
+    CONSTRAINT estilo_pkey PRIMARY KEY (id)
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public.estilo
+    OWNER to postgres;
+
+
+
+
+
+
+
+
+
+
+
+
+-- Table: public.vehiculo
+
+-- DROP TABLE public.vehiculo;
+
+CREATE TABLE public.vehiculo
+(
+    placa character varying COLLATE pg_catalog."default" NOT NULL,
+    marcaid integer,
+    modeloid integer,
+    estiloid integer,
+    transmision character varying COLLATE pg_catalog."default",
+    "año" integer,
+    precio integer,
+    estado character varying COLLATE pg_catalog."default",
+    foto character varying COLLATE pg_catalog."default",
+    CONSTRAINT vehiculo_pkey PRIMARY KEY (placa),
+    CONSTRAINT idestilo FOREIGN KEY (estiloid)
+        REFERENCES public.estilo (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION,
+    CONSTRAINT idmarca FOREIGN KEY (marcaid)
+        REFERENCES public.marcas (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION,
+    CONSTRAINT idmodelo FOREIGN KEY (modeloid)
+        REFERENCES public.modelo (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public.vehiculo
+    OWNER to postgres;
+
+
+
+

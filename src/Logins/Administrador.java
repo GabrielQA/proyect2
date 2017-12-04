@@ -68,7 +68,7 @@ public class Administrador extends javax.swing.JFrame {
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Añadir Marca", "Modificar Marca", "Eliminar Marca" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Añadir Marcar", "Modificar Marca", "Eliminar Marca" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
@@ -172,14 +172,14 @@ public class Administrador extends javax.swing.JFrame {
             Log.setLocationRelativeTo(null);
             dispose();
         } else if (A.getSelectedItem().equals("Modificar Vehiculo")) {
-            LogearseCliente Log = new LogearseCliente();
+            ModVehiculos Log = new ModVehiculos();
             Log.setVisible(true);
             Log.setEnabled(true);
             Log.setLocationRelativeTo(null);
             dispose();
         }
         else if (A.getSelectedItem().equals("Eliminar Vehiculo")) {
-            LogearseCliente Log = new LogearseCliente();
+           DeleteVehiculos Log = new DeleteVehiculos();
             Log.setVisible(true);
             Log.setEnabled(true);
             Log.setLocationRelativeTo(null);
@@ -189,20 +189,20 @@ public class Administrador extends javax.swing.JFrame {
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
      if (A.getSelectedItem().equals("Añadir Marca")) {
-            Marcas Log = new Marcas();
+            Vehiculos Log = new Vehiculos();
             Log.setVisible(true);
             Log.setEnabled(true);
             Log.setLocationRelativeTo(null);
             dispose();
         } else if (A.getSelectedItem().equals("Modificar Marca")) {
-            ModMarca Log = new ModMarca();
+            ModVehiculos Log = new ModVehiculos();
             Log.setVisible(true);
             Log.setEnabled(true);
             Log.setLocationRelativeTo(null);
             dispose();
         }
         else if (A.getSelectedItem().equals("Eliminar Marca")) {
-            DeleteMarca Log = new DeleteMarca();
+           DeleteVehiculos Log = new DeleteVehiculos();
             Log.setVisible(true);
             Log.setEnabled(true);
             Log.setLocationRelativeTo(null);
