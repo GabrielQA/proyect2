@@ -16,6 +16,8 @@ public class Administrador extends javax.swing.JFrame {
      */
     public Administrador() {
         initComponents();
+        setResizable(false);
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -35,7 +37,7 @@ public class Administrador extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         A = new javax.swing.JComboBox();
-        jComboBox1 = new javax.swing.JComboBox();
+        B = new javax.swing.JComboBox();
         jComboBox2 = new javax.swing.JComboBox();
         jComboBox3 = new javax.swing.JComboBox();
         jComboBox4 = new javax.swing.JComboBox();
@@ -68,10 +70,15 @@ public class Administrador extends javax.swing.JFrame {
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Añadir Marca", "Modificar Marca", "Eliminar Marca" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        B.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Añadir Marca", "Modificar Marca", "Eliminar Marca" }));
+        B.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BMouseClicked(evt);
+            }
+        });
+        B.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                BActionPerformed(evt);
             }
         });
 
@@ -111,7 +118,7 @@ public class Administrador extends javax.swing.JFrame {
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(B, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -144,7 +151,7 @@ public class Administrador extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(A, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(B, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -157,7 +164,7 @@ public class Administrador extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-      LoginAdmin Log = new LoginAdmin();
+        LoginAdmin Log = new LoginAdmin();
         Log.setVisible(true);
         Log.setEnabled(true);
         Log.setLocationRelativeTo(null);
@@ -165,7 +172,7 @@ public class Administrador extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void AActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AActionPerformed
-       if (A.getSelectedItem().equals("Añadir Vehiculo")) {
+        if (A.getSelectedItem().equals("Añadir Vehiculo")) {
             Vehiculos Log = new Vehiculos();
             Log.setVisible(true);
             Log.setEnabled(true);
@@ -177,41 +184,37 @@ public class Administrador extends javax.swing.JFrame {
             Log.setEnabled(true);
             Log.setLocationRelativeTo(null);
             dispose();
-        }
-        else if (A.getSelectedItem().equals("Eliminar Vehiculo")) {
+        } else if (A.getSelectedItem().equals("Eliminar Vehiculo")) {
             LogearseCliente Log = new LogearseCliente();
             Log.setVisible(true);
             Log.setEnabled(true);
             Log.setLocationRelativeTo(null);
             dispose();
-       }
+        }
     }//GEN-LAST:event_AActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-     if (A.getSelectedItem().equals("Añadir Marca")) {
+    private void BActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BActionPerformed
+        if (A.getSelectedItem().equals("Añadir Marca")) {
+            dispose();
             Marcas Log = new Marcas();
             Log.setVisible(true);
-            Log.setEnabled(true);
-            Log.setLocationRelativeTo(null);
-            dispose();
         } else if (A.getSelectedItem().equals("Modificar Marca")) {
             ModMarca Log = new ModMarca();
             Log.setVisible(true);
             Log.setEnabled(true);
             Log.setLocationRelativeTo(null);
             dispose();
-        }
-        else if (A.getSelectedItem().equals("Eliminar Marca")) {
+        } else if (A.getSelectedItem().equals("Eliminar Marca")) {
             DeleteMarca Log = new DeleteMarca();
             Log.setVisible(true);
             Log.setEnabled(true);
             Log.setLocationRelativeTo(null);
             dispose();
-       }
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+        }
+    }//GEN-LAST:event_BActionPerformed
 
     private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
-       if (A.getSelectedItem().equals("Añadir Modelo")) {
+        if (A.getSelectedItem().equals("Añadir Modelo")) {
             Modelo Log = new Modelo();
             Log.setVisible(true);
             Log.setEnabled(true);
@@ -223,18 +226,17 @@ public class Administrador extends javax.swing.JFrame {
             Log.setEnabled(true);
             Log.setLocationRelativeTo(null);
             dispose();
-        }
-        else if (A.getSelectedItem().equals("Eliminar Modelo")) {
+        } else if (A.getSelectedItem().equals("Eliminar Modelo")) {
             DeleteModelo Log = new DeleteModelo();
             Log.setVisible(true);
             Log.setEnabled(true);
             Log.setLocationRelativeTo(null);
             dispose();
-       }
+        }
     }//GEN-LAST:event_jComboBox2ActionPerformed
 
     private void jComboBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox3ActionPerformed
-      if (A.getSelectedItem().equals("Añadir Estilo")) {
+        if (A.getSelectedItem().equals("Añadir Estilo")) {
             Marcas Log = new Marcas();
             Log.setVisible(true);
             Log.setEnabled(true);
@@ -246,18 +248,17 @@ public class Administrador extends javax.swing.JFrame {
             Log.setEnabled(true);
             Log.setLocationRelativeTo(null);
             dispose();
-        }
-        else if (A.getSelectedItem().equals("Eliminar Estilo")) {
+        } else if (A.getSelectedItem().equals("Eliminar Estilo")) {
             DeleteMarca Log = new DeleteMarca();
             Log.setVisible(true);
             Log.setEnabled(true);
             Log.setLocationRelativeTo(null);
             dispose();
-       }
+        }
     }//GEN-LAST:event_jComboBox3ActionPerformed
 
     private void jComboBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox4ActionPerformed
-       if (A.getSelectedItem().equals("Añadir Oficina")) {
+        if (A.getSelectedItem().equals("Añadir Oficina")) {
             Marcas Log = new Marcas();
             Log.setVisible(true);
             Log.setEnabled(true);
@@ -269,15 +270,18 @@ public class Administrador extends javax.swing.JFrame {
             Log.setEnabled(true);
             Log.setLocationRelativeTo(null);
             dispose();
-        }
-        else if (A.getSelectedItem().equals("Eliminar Oficina")) {
+        } else if (A.getSelectedItem().equals("Eliminar Oficina")) {
             DeleteMarca Log = new DeleteMarca();
             Log.setVisible(true);
             Log.setEnabled(true);
             Log.setLocationRelativeTo(null);
             dispose();
-       }
+        }
     }//GEN-LAST:event_jComboBox4ActionPerformed
+
+    private void BMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BMouseClicked
+
+    }//GEN-LAST:event_BMouseClicked
 
     /**
      * @param args the command line arguments
@@ -316,8 +320,8 @@ public class Administrador extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox A;
+    private javax.swing.JComboBox B;
     private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox jComboBox1;
     private javax.swing.JComboBox jComboBox2;
     private javax.swing.JComboBox jComboBox3;
     private javax.swing.JComboBox jComboBox4;
