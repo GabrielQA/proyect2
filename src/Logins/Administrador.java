@@ -16,6 +16,8 @@ public class Administrador extends javax.swing.JFrame {
      */
     public Administrador() {
         initComponents();
+        setResizable(false);
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -69,6 +71,11 @@ public class Administrador extends javax.swing.JFrame {
         });
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Añadir Marcar", "Modificar Marca", "Eliminar Marca" }));
+        jComboBox1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jComboBox1MouseClicked(evt);
+            }
+        });
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
@@ -157,7 +164,7 @@ public class Administrador extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-      LoginAdmin Log = new LoginAdmin();
+        LoginAdmin Log = new LoginAdmin();
         Log.setVisible(true);
         Log.setEnabled(true);
         Log.setLocationRelativeTo(null);
@@ -165,7 +172,7 @@ public class Administrador extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void AActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AActionPerformed
-       if (A.getSelectedItem().equals("Añadir Vehiculo")) {
+        if (A.getSelectedItem().equals("Añadir Vehiculo")) {
             Vehiculos Log = new Vehiculos();
             Log.setVisible(true);
             Log.setEnabled(true);
@@ -184,16 +191,13 @@ public class Administrador extends javax.swing.JFrame {
             Log.setEnabled(true);
             Log.setLocationRelativeTo(null);
             dispose();
-       }
+        }
     }//GEN-LAST:event_AActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {                                           
      if (A.getSelectedItem().equals("Añadir Marca")) {
             Vehiculos Log = new Vehiculos();
             Log.setVisible(true);
-            Log.setEnabled(true);
-            Log.setLocationRelativeTo(null);
-            dispose();
         } else if (A.getSelectedItem().equals("Modificar Marca")) {
             ModVehiculos Log = new ModVehiculos();
             Log.setVisible(true);
@@ -207,11 +211,11 @@ public class Administrador extends javax.swing.JFrame {
             Log.setEnabled(true);
             Log.setLocationRelativeTo(null);
             dispose();
-       }
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+        }
+    }                                 
 
     private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
-       if (A.getSelectedItem().equals("Añadir Modelo")) {
+        if (A.getSelectedItem().equals("Añadir Modelo")) {
             Modelo Log = new Modelo();
             Log.setVisible(true);
             Log.setEnabled(true);
@@ -223,18 +227,17 @@ public class Administrador extends javax.swing.JFrame {
             Log.setEnabled(true);
             Log.setLocationRelativeTo(null);
             dispose();
-        }
-        else if (A.getSelectedItem().equals("Eliminar Modelo")) {
+        } else if (A.getSelectedItem().equals("Eliminar Modelo")) {
             DeleteModelo Log = new DeleteModelo();
             Log.setVisible(true);
             Log.setEnabled(true);
             Log.setLocationRelativeTo(null);
             dispose();
-       }
+        }
     }//GEN-LAST:event_jComboBox2ActionPerformed
 
     private void jComboBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox3ActionPerformed
-      if (A.getSelectedItem().equals("Añadir Estilo")) {
+        if (A.getSelectedItem().equals("Añadir Estilo")) {
             Marcas Log = new Marcas();
             Log.setVisible(true);
             Log.setEnabled(true);
@@ -246,18 +249,17 @@ public class Administrador extends javax.swing.JFrame {
             Log.setEnabled(true);
             Log.setLocationRelativeTo(null);
             dispose();
-        }
-        else if (A.getSelectedItem().equals("Eliminar Estilo")) {
+        } else if (A.getSelectedItem().equals("Eliminar Estilo")) {
             DeleteMarca Log = new DeleteMarca();
             Log.setVisible(true);
             Log.setEnabled(true);
             Log.setLocationRelativeTo(null);
             dispose();
-       }
+        }
     }//GEN-LAST:event_jComboBox3ActionPerformed
 
     private void jComboBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox4ActionPerformed
-       if (A.getSelectedItem().equals("Añadir Oficina")) {
+        if (A.getSelectedItem().equals("Añadir Oficina")) {
             Marcas Log = new Marcas();
             Log.setVisible(true);
             Log.setEnabled(true);
@@ -269,15 +271,18 @@ public class Administrador extends javax.swing.JFrame {
             Log.setEnabled(true);
             Log.setLocationRelativeTo(null);
             dispose();
-        }
-        else if (A.getSelectedItem().equals("Eliminar Oficina")) {
+        } else if (A.getSelectedItem().equals("Eliminar Oficina")) {
             DeleteMarca Log = new DeleteMarca();
             Log.setVisible(true);
             Log.setEnabled(true);
             Log.setLocationRelativeTo(null);
             dispose();
-       }
+        }
     }//GEN-LAST:event_jComboBox4ActionPerformed
+
+    private void jComboBox1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBox1MouseClicked
+
+    }//GEN-LAST:event_jComboBox1MouseClicked
 
     /**
      * @param args the command line arguments
